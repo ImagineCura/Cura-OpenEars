@@ -16,6 +16,10 @@ class ViewController: UIViewController, OEEventsObserverDelegate  {
     var slt = Slt()
     var openEarsEventsObserver = OEEventsObserver()
     
+    //reference to speech button
+    @IBOutlet weak var TextToSpeechButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -61,6 +65,15 @@ class ViewController: UIViewController, OEEventsObserverDelegate  {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func TextToSpeechButton_Click(_ sender: UIButton) {
+        
+        //text to speech example
+        print("LOG: button pressed")
+        self.fliteController.say(_:"Button has been pressed", with:self.slt)
+        
+    }
+    
     
     //MARK: speech handling functions
     func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
